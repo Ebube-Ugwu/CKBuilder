@@ -30,11 +30,6 @@ Week Ending: 08-05-2026
     * **User Defined Tokens:** Assets are stored in user-owned cells rather than a single central contract.
     * **CKB-VM Execution:** A flexible RISC-V virtual machine that runs smart contracts written in diverse languages.
     * **Off-Chain/On-Chain Pattern:** Computation is performed off-chain, while the blockchain handles only verification.
-    * **The Since Field:** Enables flexible time-locking based on blocks, epochs, or absolute timestamps.
-    * **Dep Groups:** A mechanism to bundle multiple dependencies into one cell for better efficiency.
-    * **Witnesses:** Data fields that carry cryptographic proofs and signatures for transaction validation.
-    * **Script Groups:** A system that groups identical scripts to prevent redundant execution cycles.
-    * **Your First Script:** Using Rust.
 
 ### Screenshots
 
