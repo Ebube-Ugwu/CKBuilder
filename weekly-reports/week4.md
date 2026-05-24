@@ -5,6 +5,7 @@ Week Ending: 23-05-2026
 ## Courses Completed
 
  ### L1 Developer Training Course (Nervos CKB)
+  *I actually downloaded it as a pdf, so i could study on the go, even without an internet connection*
 
 - Introduction to Nervos Basics
     - Lab Exercise Setup and Dev Chain Configuration
@@ -14,7 +15,7 @@ Week Ending: 23-05-2026
  - Introduction to the Cell Model
     - Live Cells and Dead Cells
     - Capacity Requirements and Transaction Fees
-    - Introduction to Lumos Framework
+    - Introduction to Lumos Framework (*lumos is deprecated so i just read through and practiced using offckb*😁)
     - Working with Transaction Skeletons
     - Cell Collection and Automated Capacity Management
     - Using the Indexer for Cell Queries
@@ -28,6 +29,7 @@ Week Ending: 23-05-2026
     - Practical Transaction Building Exercises
 
 ### Rust Book Revision (Chapters 19 - 21)
+*I didn't fully grasp the concepts covered in these chapters, the first few times i read them so i had to read them some more* 😅
 
 - Advanced Traits & Advanced Types
 - Unsafe Rust
@@ -35,6 +37,7 @@ Week Ending: 23-05-2026
 - Macros and Metaprogramming
 
 ## Screenshots
+
 ![fiber youtube playlist](../images/week-4/fiber-youtube.jpg)
 
 ![l1 developer course](../images/week-4/l1-developer-course.jpg)
@@ -47,7 +50,7 @@ Week Ending: 23-05-2026
 
 - Understood how out points reference previous cells and how cell ownership and authorization are enforced through lock scripts.
 
-- Practiced working with Lumos transaction skeletons, including creating transactions, adding inputs and outputs, signing transactions, and broadcasting them to a local dev chain.
+- Practiced working with transaction skeletons, including creating transactions, adding inputs and outputs, signing transactions, and broadcasting them to a local dev chain.
 
 - Learned how automated cell collection works using the Indexer and CellCollector, and how change cells and transaction fees are calculated.
 
@@ -60,7 +63,7 @@ Week Ending: 23-05-2026
 - Practical Progress
 Completed the L1 Developer Training Course exercises and practiced transaction-building workflows on a local CKB dev chain.
 
-- Built and executed multiple basic transactions using both ckb-cli and Lumos.
+- Built and executed multiple basic transactions using offckb.
 
 - Practiced manually inspecting transactions, out points, live cells, and witnesses using RPC calls and ckb-cli.
 
@@ -84,6 +87,6 @@ Rust toolchain and Cargo configured for CKB script development and Rust CLI work
 
 ## Extra
 
-Learned about the Fiber Network through videos on the Nervos Network YouTube channel.
+- Learned about the Fiber Network through videos on the Nervos Network YouTube channel.
 
-Went through the Fiber Network showcase and explored its role in scaling payments and enabling off-chain transaction routing on Nervos.
+- Went through the Fiber Network showcase and explored its role in scaling payments and enabling off-chain transaction routing on Nervos.
