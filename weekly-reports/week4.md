@@ -39,7 +39,7 @@ Week Ending: 23-05-2026
 
 ![l1 developer course](../images/week-4/l1-developer-course.jpg)
 
-### Key Learnings
+## Key Learnings
 
 - Developed a stronger understanding of the Nervos CKB transaction model, especially how transactions consume live cells and create new cells while maintaining capacity accounting.
 
