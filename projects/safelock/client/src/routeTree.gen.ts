@@ -12,7 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as NewRouteImport } from './routes/new'
 import { Route as LocksRouteImport } from './routes/locks'
-import { Route as InitRouteImport } from './routes/init'
+import { Route as HomeRouteImport } from './routes/home'
 import { Route as IndexRouteImport } from './routes/index'
 
 const SettingsRoute = SettingsRouteImport.update({
@@ -30,9 +30,9 @@ const LocksRoute = LocksRouteImport.update({
   path: '/locks',
   getParentRoute: () => rootRouteImport,
 } as any)
-const InitRoute = InitRouteImport.update({
-  id: '/init',
-  path: '/init',
+const HomeRoute = HomeRouteImport.update({
+  id: '/home',
+  path: '/home',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -43,14 +43,14 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/init': typeof InitRoute
+  '/home': typeof HomeRoute
   '/locks': typeof LocksRoute
   '/new': typeof NewRoute
   '/settings': typeof SettingsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/init': typeof InitRoute
+  '/home': typeof HomeRoute
   '/locks': typeof LocksRoute
   '/new': typeof NewRoute
   '/settings': typeof SettingsRoute
@@ -58,22 +58,22 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/init': typeof InitRoute
+  '/home': typeof HomeRoute
   '/locks': typeof LocksRoute
   '/new': typeof NewRoute
   '/settings': typeof SettingsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/init' | '/locks' | '/new' | '/settings'
+  fullPaths: '/' | '/home' | '/locks' | '/new' | '/settings'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/init' | '/locks' | '/new' | '/settings'
-  id: '__root__' | '/' | '/init' | '/locks' | '/new' | '/settings'
+  to: '/' | '/home' | '/locks' | '/new' | '/settings'
+  id: '__root__' | '/' | '/home' | '/locks' | '/new' | '/settings'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  InitRoute: typeof InitRoute
+  HomeRoute: typeof HomeRoute
   LocksRoute: typeof LocksRoute
   NewRoute: typeof NewRoute
   SettingsRoute: typeof SettingsRoute
@@ -102,11 +102,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LocksRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/init': {
-      id: '/init'
-      path: '/init'
-      fullPath: '/init'
-      preLoaderRoute: typeof InitRouteImport
+    '/home': {
+      id: '/home'
+      path: '/home'
+      fullPath: '/home'
+      preLoaderRoute: typeof HomeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -121,7 +121,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  InitRoute: InitRoute,
+  HomeRoute: HomeRoute,
   LocksRoute: LocksRoute,
   NewRoute: NewRoute,
   SettingsRoute: SettingsRoute,
