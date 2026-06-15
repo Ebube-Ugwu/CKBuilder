@@ -15,10 +15,16 @@ import {
 
 interface Props {
     message: string
+    onDateChange?: (date: Date | undefined) => void
 }
 
-export function DatePickerDemo({message}: Props) {
+export function DatePickerDemo({message, onDateChange}: Props) {
   const [date, setDate] = React.useState<Date>()
+
+  const handleSelect = (d: Date | undefined) => {
+    setDate(d)
+    onDateChange?.(d)
+  }
 
   return (
     <Popover>
@@ -33,7 +39,7 @@ export function DatePickerDemo({message}: Props) {
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-auto p-0">
-        <Calendar mode="single" selected={date} onSelect={setDate} />
+        <Calendar mode="single" selected={date} onSelect={handleSelect} />
       </PopoverContent>
     </Popover>
   )

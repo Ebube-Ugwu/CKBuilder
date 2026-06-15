@@ -1,0 +1,21 @@
+{
+  "devnet": {
+    "time-lock": {
+      "codeHash": "0x76ee7120f748eaa005f9efb4b8196e0c5b795c9bc64a05d081b6c3ba5b4090b1",
+      "hashType": "type",
+      "cellDeps": [
+        {
+          "cellDep": {
+            "outPoint": {
+              "txHash": "0x09a34e6a81acbfdd776376fab2c1a36f8985ba614c69593c2cc51990055359ad",
+              "index": 0
+            },
+            "depType": "code"
+          }
+        }
+      ]
+    }
+  },
+  "testnet": {},
+  "mainnet": {}
+}
