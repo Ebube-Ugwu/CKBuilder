@@ -12,8 +12,17 @@ import {
 } from "#/lib/ckb";
 import { create } from "zustand";
 
-const PRIV_KEY = process.env.DEVNET_PRIVKEY || localStorage.getItem("devnetPrivKey") || "";
+const PRIV_KEY = process.env.CKB_PRIVKEY || localStorage.getItem("ckbPrivKey") || "";
 export type SignerMode = "devnet" | "joyid";
+
+function withTimeout<T>(promise: Promise<T>, ms: number, label: string): Promise<T> {
+  return Promise.race([
+    promise,
+    new Promise<T>((_, reject) =>
+      setTimeout(() => reject(new Error(`${label} timed out after ${ms / 1000}s`)), ms),
+    ),
+  ]);
+}
 
 interface WalletState {
   address: string | null;
@@ -54,7 +63,7 @@ export const useWalletStore = create<WalletState>((set, get) => ({
   connectWallet: async () => {
     try {
       set({ isLoading: true, error: null });
-      const auth = await connect();
+      const auth = await withTimeout(connect(), 120_000, "Connection");
       const addr = await ccc.Address.fromString(auth.address, cccClient);
       const signer = PRIV_KEY
         ? new ccc.SignerCkbPrivateKey(cccClient, PRIV_KEY)
@@ -72,8 +81,8 @@ export const useWalletStore = create<WalletState>((set, get) => ({
         isLoading: false,
       });
       const [bal, locked] = await Promise.all([
-        capacityOf(auth.address),
-        lockedBalanceOf(auth.address),
+        withTimeout(capacityOf(auth.address), 30_000, "Balance fetch"),
+        withTimeout(lockedBalanceOf(auth.address), 30_000, "Locked balance fetch"),
       ]);
       set({
         balance: shannonToCKB(bal),
@@ -106,9 +115,11 @@ export const useWalletStore = create<WalletState>((set, get) => ({
     if (!address) return;
     try {
       set({ isLoading: true });
-      const locks = await fetchUserLocks(address);
-      const bal = await capacityOf(address);
-      const locked = await lockedBalanceOf(address);
+      const [locks, bal, locked] = await Promise.all([
+        withTimeout(fetchUserLocks(address), 30_000, "Fetch locks"),
+        withTimeout(capacityOf(address), 30_000, "Balance fetch"),
+        withTimeout(lockedBalanceOf(address), 30_000, "Locked balance fetch"),
+      ]);
       set({
         locks,
         balance: shannonToCKB(bal),

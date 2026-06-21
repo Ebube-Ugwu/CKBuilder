@@ -1,0 +1,13 @@
+{
+  "cell_recipes": [
+    {
+      "name": "time-lock",
+      "tx_hash": "0x0ed14b5c390b0d18d67489cf3fb65fb564e4f9d493e629647d03c4c25f6eb41b",
+      "index": 0,
+      "occupied_capacity": 3993600000000,
+      "data_hash": "0xabce0948ec508c55adbe31a2eede1f067e099c63fd23b14506f215abb74446a7",
+      "type_id": "0xc7f81eed0c706991e7e54c8c06aa210711ec6ce7d4b65eb00f228a6f5522465c"
+    }
+  ],
+  "dep_group_recipes": []
+}

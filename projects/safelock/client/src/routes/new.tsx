@@ -30,8 +30,8 @@ function RouteComponent() {
     try {
       await createLock(amount, timestamp);
       navigate({ to: "/locks" });
-    } catch {
-      setError("Failed to create lock. Check console.");
+    } catch (e) {
+      setError((e as Error).message);
     }
   };
 

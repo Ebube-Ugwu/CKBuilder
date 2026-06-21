@@ -2,11 +2,23 @@ import { ccc } from "@ckb-ccc/core";
 import { signRawTransaction } from "@joyid/ckb";
 import { cccClient } from "./ccc-client";
 
-export const TIME_LOCK: Pick<ccc.Script, "codeHash" | "hashType"> = {
+export const TIME_LOCK = {
   codeHash:
-    "0x9bd7e06f3ecf4be0f2fcd2188b23f1b9fcc88e5d4b65a8637b17723bbda3cce8",
-  hashType: "type",
+    "0xc7f81eed0c706991e7e54c8c06aa210711ec6ce7d4b65eb00f228a6f5522465c",
+  hashType: "type" as const,
+  cellDep: {
+    outPoint: {
+      txHash:
+        "0x0ed14b5c390b0d18d67489cf3fb65fb564e4f9d493e629647d03c4c25f6eb41b" as `0x${string}`,
+      index: 0,
+    },
+    depType: "code" as const,
+  },
 };
+
+function formatCKB(amount: bigint): string {
+  return ccc.fixedPointToString(amount);
+}
 
 export interface TimeLockCell {
   outPoint: ccc.OutPoint;
@@ -95,8 +107,21 @@ export async function createLock(
     ],
     outputsData: [ccc.hexFrom(ccc.numBeToBytes(unlockTimestamp, 8))],
   });
+  const output = tx.outputs[0];
+  const outputData = tx.outputsData[0];
+  const requiredCapacity = ccc.fixedPointFrom(
+    output.occupiedSize + ccc.bytesFrom(outputData).byteLength,
+  );
+  if (output.capacity < requiredCapacity) {
+    throw new Error(`Amount must be at least ${formatCKB(requiredCapacity)} CKB`);
+  }
+  tx.addCellDeps(TIME_LOCK.cellDep);
   await tx.completeInputsByCapacity(signer);
   await tx.completeFeeBy(signer, 1000n);
+
+  // every input needs a corresponding witness entry
+  const emptyWitness = ccc.hexFrom(new ccc.WitnessArgs().toBytes());
+  tx.witnesses = tx.inputs.map(() => emptyWitness);
 
   if (joyidAddress) {
     const joyidTx = cccTxToCKBTransaction(tx);
@@ -121,8 +146,13 @@ export async function unlockLock(
     outputs: [{ lock: addr.script, capacity: returnAmount }],
     outputsData: ["0x"],
   });
+  tx.addCellDeps(TIME_LOCK.cellDep);
 
   await tx.completeFeeBy(signer, 1000n);
+
+  // every input needs a corresponding witness entry
+  const emptyWitness = ccc.hexFrom(new ccc.WitnessArgs().toBytes());
+  tx.witnesses = tx.inputs.map(() => emptyWitness);
 
   for (const input of tx.inputs) {
     if (input.cellOutput?.type?.codeHash === TIME_LOCK.codeHash) {
