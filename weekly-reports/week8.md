@@ -43,8 +43,8 @@ Check it out on Vercel (p.s. the UI is still rough): [Safelock](https://safelock
 
 I decided to split it up into two phases:
 
-  - [Phase 1: Core Rust Smart Contract tutorial (from scratch to deployment)](../tutorials/safelock-1.md)
-  - Phase 2: Integration with a React Frontend (via CCC) and Non-custodial Wallet (JoyId)
+- [Phase 1: Core Rust Smart Contract tutorial (from scratch to deployment)](../tutorials/safelock-1.md)
+- Phase 2: Integration with a React Frontend (via CCC) and Non-custodial Wallet (JoyId)
 
 ## Key Learnings
 
@@ -53,7 +53,6 @@ I decided to split it up into two phases:
 - Practiced creating and serializing digital objects on-chain using the Spore Protocol.
 - Reviewed the modern CKB contract development workflow (ckb-script-templates, ckb-debugger, ckb-testtool) and how it replaces the deprecated Capsule framework.
 - Successfully deployed a contract to testnet using offckb and documented the process.
-
 
 ## Environment
 
@@ -78,8 +77,7 @@ Read 10 posts on Nervos Talks, mainly those by [Truthixify](https://talk.nervos.
 
 ## Week 9
 
-    - Grow my knowledge on CKB smart contracts via the numerous posts on Nervos Talks and the Nervos documentation.
-
+- Grow my knowledge on CKB smart contracts via the numerous posts on Nervos Talks and the Nervos documentation.
 - Complete Phase 2 of the SafeLock tutorial (React frontend + CCC + JoyID).
 - Investigate Nervos Docs issues related to lag and RAM consumption.
 - Begin implementation of the Fundraiser project.
