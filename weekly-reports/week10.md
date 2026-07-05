@@ -11,7 +11,7 @@ With the Fiber Network Infrastructure Hackathon officially underway, this week w
 
 Rather than immediately jumping into development, I spent most of the week researching the existing Fiber ecosystem, comparing potential ideas with projects already available in the [Fiber Showcase](https://www.fiber.world/showcase), and identifying infrastructure gaps that had not yet been explored.
 
-The goal wasn't simply to build another application, but to build reusable infrastructure that other developers could benefit from.
+The goal wasn't simply to build another application, but to build reusable infrastructure that other developers could benefit from, especially traditional developers like me.
 
 ---
 
@@ -25,7 +25,7 @@ One of the first ideas was to build a Java SDK together with a Spring Boot Start
 
 The motivation was simple: although much of the Web3 ecosystem revolves around JavaScript and Rust, many serious backends are still built using Java and Spring Boot. A well-designed SDK would make integrating Fiber into existing backend systems significantly easier.
 
-I even began planning the SDK architecture and discussed how it could eventually be published independently as its own reusable library.
+I even began planning the SDK architecture and discussed how it could eventually be published independently as its own reusable library (Mainly via Springboot Integrations, since it's the most popular JVM backend solution).
 
 ---
 
@@ -81,7 +81,7 @@ This exercise ended up shaping the final direction of the project.
 
 ---
 
-## Final Direction — Fiber Playground
+## Final Direction — FiberMan
 
 After several iterations, the project eventually evolved into **Fiber Playground**.
 
@@ -102,7 +102,22 @@ The current MVP is planned to include:
 
 The Java SDK itself will remain a reusable component that can later be published independently.
 
-Since the hackathon is still ongoing, I don't want to reveal too much about the project publicly just yet. Hopefully by next week's report the MVP will be complete and ready to demonstrate.
+Since the hackathon is still ongoing, I don't want to reveal too much about the project publicly just yet. By next week's report the MVP will be complete and ready to demonstrate.
+
+## Sidenote: _Many other ideas were explored before settling on FiberMan, but they were discarded for one or more of the following reasons:_
+
+    - Similar project already existed
+    - Too Complex to build giving my experience and the time limit
+    - Didn't have a practical usecase
+    - I didn't like it
+
+## Another Sidenote: _If you are wondering how i came up with different ideas, it was a mixture of:_
+
+    - Different LLM models (ChatGPT, Claude, Gemini, Deepseek)
+    - Reading Nervos Talks for Ideas
+    - Asking Peers (Mugiwara/Paschal)
+    - Looking at ideas implemented in other blockchain ecosystems
+    - Trying whatever came to my mind
 
 ---
 
@@ -132,6 +147,12 @@ Getting the very first RPC call working was an important milestone, as it valida
 
 ---
 
+## Screenshots
+
+![Fiber showcase](../images/week-10/fiber-showcase.png)
+
+---
+
 ## Reference Links
 
 - Fiber Official Site: https://fiber.world
@@ -141,10 +162,12 @@ Getting the very first RPC call working was an important milestone, as it valida
 
 ---
 
-## Week 12
+## Week 11
 
 - Complete the Java Fiber SDK
 - Build the Spring Boot backend APIs
 - Implement the Angular RPC Explorer
 - Add Invoice Builder and QR generation
 - Finish the MVP and submit the hackathon project 🚀
+- Hopefully Finish up the previous non-hackathon related work (i.e Fundraiser Project)
+- Finalize My Capstone CKB Project Idea (My 12 weeks of babysitting are almost up🙃)
