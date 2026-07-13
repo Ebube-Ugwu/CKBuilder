@@ -47,6 +47,7 @@ At its core, the project now supports:
 - session-based call history
 - generated `curl` commands
 - generated Java integration snippets
+- generated Go integration snippets
 
 This is exactly the kind of tooling I originally felt was missing while learning the ecosystem.
 
@@ -68,6 +69,8 @@ The SDK handles:
 - JSON-RPC request/response structure
 - method wrappers for common Fiber operations
 - error handling around node communication
+
+This became the most validated part of the project and served as the foundation for the initial working MVP.
 
 ---
 
@@ -96,14 +99,56 @@ The focus was not just making something that works, but making something that he
 
 The main surfaces implemented are:
 
+- Dashboard
 - RPC Explorer
 - Invoice Builder
+- Network Topology
+- Logs
+- Payments History
 - QR output
 - History replay
 - generated snippet viewing/copying
 - runtime settings UI
 
 This made the project feel much closer to a real developer tool rather than just a hackathon proof of concept.
+
+Some of those screens are more production-ready than others. The RPC Explorer, Settings, Invoice Builder, and History flow are backed by real API calls, while parts of Dashboard, Topology, and Logs currently lean on derived or presentation-oriented data.
+
+---
+
+### Go SDK, Go Backend, and Desktop Runtime
+
+One of the biggest things I failed to mention is that the project expanded beyond the original Java-only plan.
+
+In addition to the Java path, I also implemented:
+
+- a plain **Go Fiber SDK**
+- a **Go backend** designed to preserve the same frontend contract
+- a **Wails desktop app** that packages the frontend together with a Go service runtime
+
+This is important because FiberMan is no longer just "a Java SDK demo."
+
+It has started evolving into a broader multi-runtime developer tool with:
+
+- Java for JVM developers
+- Go for a lighter backend/runtime path
+- Wails for desktop packaging without needing something heavier like Electron
+
+That architectural direction gives the project a more credible long-term future beyond the hackathon.
+
+---
+
+### Containerized Demo Packaging
+
+Another important improvement this week was the move toward an all-in-one deployment path.
+
+The project now includes container-oriented packaging that aims to:
+
+- bundle the app and Fiber runtime together
+- reduce setup friction for judges
+- make the demo easier to run with Docker, Podman, or compose-based workflows
+
+That matters because good hackathon infrastructure is not only about writing features, but also about making the project easy to launch and evaluate.
 
 ---
 
@@ -113,9 +158,11 @@ A few design decisions turned out to be especially helpful during implementation
 
 - Keeping the SDK framework-independent made the project cleaner and more reusable.
 - Returning raw or lightly processed JSON avoided wasting time over-modelling Fiber responses too early.
-- Generating `curl` and Java code from the backend ensured the copied examples stayed aligned with real executed requests.
+- Generating `curl`, Java, and Go code from the backend ensured the copied examples stayed aligned with real executed requests.
 - Using lightweight session history avoided unnecessary database setup during hackathon delivery.
 - Adding runtime configuration made the playground much easier to demo against different node setups.
+- Preserving the frontend contract while exploring a Go backend made it possible to evolve the runtime without throwing away the UI.
+- Exploring Wails created a practical desktop path for developer tooling and node operations use cases.
 
 These choices kept the scope under control while still producing something useful beyond the hackathon.
 
@@ -130,14 +177,19 @@ Completed so far:
 - FiberMan project direction finalized ☑️
 - Java Fiber SDK implemented ☑️
 - Java backend implemented ☑️
+- Go Fiber SDK implemented ☑️
+- Go backend implemented ☑️
+- Wails desktop runtime implemented ☑️
 - Frontend playground implemented ☑️
 - Live Fiber RPC integration working ☑️
 - Invoice generation flow working ☑️
 - QR generation working ☑️
 - Copy-as-`curl` flow working ☑️
 - Copy-as-Java snippet flow working ☑️
+- Copy-as-Go snippet flow working ☑️
 - Session history working ☑️
 - Runtime settings support working ☑️
+- Containerized deployment path prepared ☑️
 
 Still remaining:
 
@@ -156,6 +208,8 @@ So at this point, the risk is no longer "can I build it?" but "can I package and
 - Thin SDKs and thin backends are often enough for early ecosystem tooling, especially when the protocol surface is still evolving.
 - Runtime configuration is a huge quality-of-life improvement for developer tools and demos.
 - Code generation becomes far more useful when it is derived from actual successful requests, not hand-written templates.
+- Preserving one frontend contract across multiple backend/runtime experiments makes future migration much safer.
+- Developer tooling becomes much more practical when it can run as web, backend service, or desktop app without changing the core workflow.
 
 ---
 
@@ -183,4 +237,6 @@ So at this point, the risk is no longer "can I build it?" but "can I package and
 - Record and publish the showcase video
 - Finalize the hackathon submission details
 - Clean up the project documentation and repo presentation
+- Continue stabilizing the Go/Wails path after submission
+- Plan a later, more stable release with Rust and TypeScript SDK support
 - Resume focus on the remaining CKB Builder track work after the hackathon rush
