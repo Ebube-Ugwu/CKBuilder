@@ -213,14 +213,12 @@ Still remaining:
 
 ## What I Learned
 
-- Hackathon ideas become much stronger when they are grounded in a real pain point you personally felt during implementation.
-- Building reusable infrastructure is different from building a one-off demo; separation of concerns matters much more.
-- Thin SDKs and thin backends are often enough for early ecosystem tooling, especially when the protocol surface is still evolving.
+- Hackathon ideas become much stronger when they are grounded in a real pain point you personally felt during implementation (Real world usecases are better than fancy dApps that don't really offer any real value apart from eye candy)
+- Building reusable infrastructure is different from building a one-off demo; separation of concerns matters much more (it would give me joy if someone could use any of the sdk to build something no one saw coming)
 - Runtime configuration is a huge quality-of-life improvement for developer tools and demos.
-- Code generation becomes far more useful when it is derived from actual successful requests, not hand-written templates.
-- Preserving one frontend contract across multiple backend/runtime experiments makes future migration much safer.
-- Developer tooling becomes much more practical when it can run as web, backend service, or desktop app without changing the core workflow.
-
+- Code generation becomes far more useful when it is derived from actual successful requests, not hand-written templates (Having a GUI is nice).
+- Preserving one frontend contract across multiple backend/runtime experiments makes future migration much safer (honestly, and technologies like wails(a golang version of tauri(a rust version of electron)) make these seamless)
+- The FiberMan app functions way better as a desktop solution, (the web app is mainly for showcase)
 ---
 
 
