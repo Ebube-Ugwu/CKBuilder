@@ -3,7 +3,7 @@
 **Name:** Ebube Ugwu  
 **Week Ending:** 12-07-2026
 
-## _FiberMan is Built_
+## _FiberMan Prototype is built💪_
 
 ## Fiber Network Infrastructure Hackathon
 
@@ -37,9 +37,11 @@ The goal of the project is to reduce the gap between:
 - "I now understand the request/response shape"
 - "I have working code I can reuse in my own application"
 
+### *Basically gives an exploratory testing power to devs building on fiber Network*
+
 Instead of manually testing Fiber JSON-RPC with raw curl commands every time, FiberMan gives developers a visual and reusable workflow for exploring a live Fiber node.
 
-At its core, the project now supports:
+At its core, the project app now supports:
 
 - live Fiber RPC exploration
 - invoice generation
@@ -114,6 +116,9 @@ This made the project feel much closer to a real developer tool rather than just
 
 Some of those screens are more production-ready than others. The RPC Explorer, Settings, Invoice Builder, and History flow are backed by real API calls, while parts of Dashboard, Topology, and Logs currently lean on derived or presentation-oriented data.
 
+### Screenshot
+
+![](../images/week-11/angular-frontend.png)
 ---
 
 ### Go SDK, Go Backend, and Desktop Runtime
@@ -126,7 +131,7 @@ In addition to the Java path, I also implemented:
 - a **Go backend** designed to preserve the same frontend contract
 - a **Wails desktop app** that packages the frontend together with a Go service runtime
 
-This is important because FiberMan is no longer just "a Java SDK demo."
+This is important because i plan to support sdk for popular programming languages (Java, Rust, golang, Typescript) since the functionality is specific and small enough to be managed easily
 
 It has started evolving into a broader multi-runtime developer tool with:
 
@@ -136,11 +141,14 @@ It has started evolving into a broader multi-runtime developer tool with:
 
 That architectural direction gives the project a more credible long-term future beyond the hackathon.
 
+## *The desktop version is necessary as i plan for fiberman to be a desktop app, as that would be the most convenient way to use it, I built a web version primarily for the sake of the hackathon, so the judges could easily see and interact with it, while understanding the main value it provides*
+
+![](../images/week-11/wails-desktop-version.png)
 ---
 
 ### Containerized Demo Packaging
 
-Another important improvement this week was the move toward an all-in-one deployment path.
+Another important improvement this week was the move toward an all-in-one deployment path. (The standard approach would be to use docker compose, since i need to deploy both fnn, java runtime and the angular frontend, but that would be painful to deploy especially on something that would be meant  to be temporary just to showcase my POC)
 
 The project now includes container-oriented packaging that aims to:
 
@@ -149,6 +157,8 @@ The project now includes container-oriented packaging that aims to:
 - make the demo easier to run with Docker, Podman, or compose-based workflows
 
 That matters because good hackathon infrastructure is not only about writing features, but also about making the project easy to launch and evaluate.
+
+![](../images/week-11/dockerfile.png)
 
 ---
 
@@ -197,8 +207,6 @@ Still remaining:
 - Record and upload the showcase video
 - Fill in final public submission details
 
-So at this point, the risk is no longer "can I build it?" but "can I package and present it properly before submission?"
-
 ---
 
 ## What I Learned
@@ -233,6 +241,7 @@ So at this point, the risk is no longer "can I build it?" but "can I package and
 
 ## Week 12
 
+### Hackathon
 - Deploy FiberMan and verify the hosted demo works reliably
 - Record and publish the showcase video
 - Finalize the hackathon submission details
@@ -240,3 +249,10 @@ So at this point, the risk is no longer "can I build it?" but "can I package and
 - Continue stabilizing the Go/Wails path after submission
 - Plan a later, more stable release with Rust and TypeScript SDK support
 - Resume focus on the remaining CKB Builder track work after the hackathon rush
+
+### CKBTrack
+- Finish Capstone fundraiser dApp
+- Pick a niche in the nervos system
+- Get updates from moderator
+- Write tutorial 
+- Write on the experience 
