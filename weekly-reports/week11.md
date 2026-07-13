@@ -201,6 +201,8 @@ Completed so far:
 - Runtime settings support working ☑️
 - Containerized deployment path prepared ☑️
 
+![](../images/week-11/runnable-snippets.png)
+
 Still remaining:
 
 - Deploy the runnable demo
@@ -221,13 +223,6 @@ Still remaining:
 
 ---
 
-## Screenshots
-
-![Fiber showcase](../images/week-10/fiber-showcase.png)
-
-![Registered](../images/week-9/Registered-Successfully.jpg)
-
----
 
 ## Reference Links
 
